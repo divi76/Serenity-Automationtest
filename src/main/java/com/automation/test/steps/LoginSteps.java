@@ -20,4 +20,9 @@ public class LoginSteps {
 	public void verifyLoginError() {
 		loginPage.verifyInvalidLoginMsg();
 	}
+
+	@Step
+	public void accessLandingPage() {
+		loginPage.accessLandingPage();
+	}
 }

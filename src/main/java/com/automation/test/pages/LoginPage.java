@@ -1,13 +1,14 @@
 package com.automation.test.pages;
 
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -29,7 +30,7 @@ public class LoginPage extends PageObject {
 
 	public void verifyTitle() {
 		openUrl("https://devc.eidcymru.org/en/auth/login");
-		assertThat(getTitle(),equalTo("Login | EIDCymru.org"));
+		assertThat(getTitle(),containsString("EIDCymru.org"));
 	}
 	public void login(String user, String pwd) {
 		typeInto(username, user);
@@ -38,5 +39,10 @@ public class LoginPage extends PageObject {
 	}
 	public void verifyInvalidLoginMsg() {
 		assertThat(loginError.getText(),equalTo("Authentication Fail - Username or password may be invalid"));
+	}
+
+
+	public void accessLandingPage() {
+		openUrl("https://devc.eidcymru.org/");
 	}
 }
