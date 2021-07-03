@@ -3,6 +3,7 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 public class FlockPage extends PageObject {
@@ -29,7 +30,7 @@ public class FlockPage extends PageObject {
 
         find("//span[@class='eid-radio__indicator']").click();
 
-        submit.click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
     }
 
 

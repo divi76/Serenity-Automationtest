@@ -3,6 +3,9 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class CreateNewAccountPage extends PageObject {
@@ -33,7 +36,8 @@ public class CreateNewAccountPage extends PageObject {
         confirmPassword.clear();
         confirmPassword.type(cpwd);
 
-        submit.click();
+      //  submit.click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
     }
 
 }

@@ -3,6 +3,7 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
 
 
 public class RegisterNewHoldingPage extends PageObject {
@@ -44,6 +45,6 @@ public class RegisterNewHoldingPage extends PageObject {
         holdingPostcode.clear();
         holdingPostcode.type(postCode);
 
-        submit.click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
     }
 }

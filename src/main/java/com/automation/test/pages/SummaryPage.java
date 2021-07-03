@@ -3,6 +3,7 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
 
 
 public class SummaryPage extends PageObject {
@@ -10,6 +11,6 @@ public class SummaryPage extends PageObject {
     private WebElementFacade submit;
 
     public void clickOnSubmit() {
-        submit.click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
     }
 }

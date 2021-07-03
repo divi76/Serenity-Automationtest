@@ -14,7 +14,7 @@ Feature: New user registration and login
 
     Examples:
       | User        | Email                  | Password  | ConfirmPassword | CPH         | Address1      | Address2      | Town   | County    | Postcode | Name     | CRN    | Landline     | Mobile      | Address3      | Address4    | Town1  | County1   | Postcode1 | Species | Flock  | Dairy |
-      | tester90800 | tester908@eidcymru.org | Password1 | Password1       | 52/050/0062 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester77 | A0001002 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 741606| Dairy |
+      | tester90800 | tester908@eidcymru.org | Password@123| Password@123       | 55/999/0013 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester77 | 9098013 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 789013| Dairy |
 
   @login
   Scenario Outline:Successful Login with multiple users
