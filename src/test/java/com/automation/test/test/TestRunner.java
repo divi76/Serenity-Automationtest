@@ -8,9 +8,9 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        tags = {"@login"},
+        tags = {""},
         plugin = {"pretty"},
-        features = "classpath:features",
+        features = "src/test/resources/features",
         glue = {"com.automation.test.stepdefinition"}
 )
 public class TestRunner {
