@@ -36,8 +36,8 @@ public class CreateNewAccountPage extends PageObject {
         confirmPassword.clear();
         confirmPassword.type(cpwd);
 
-      //  submit.click();
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
+
     }
 
 }

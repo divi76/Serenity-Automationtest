@@ -45,6 +45,6 @@ public class RegisterNewHoldingPage extends PageObject {
         holdingPostcode.clear();
         holdingPostcode.type(postCode);
 
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
     }
 }
