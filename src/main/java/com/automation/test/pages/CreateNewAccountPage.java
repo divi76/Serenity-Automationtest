@@ -25,6 +25,7 @@ public class CreateNewAccountPage extends PageObject {
     WebElementFacade submit;
 
     public void enterAccountDetails(String user, String mail, String pwd, String cpwd) {
+        getDriver().manage().window().maximize();
         name.clear();
         name.type(user);
 
@@ -36,8 +37,8 @@ public class CreateNewAccountPage extends PageObject {
         confirmPassword.clear();
         confirmPassword.type(cpwd);
 
-      //  submit.click();
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
+
     }
 
 }

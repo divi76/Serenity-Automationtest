@@ -21,7 +21,7 @@ public class FlockPage extends PageObject {
     private WebElementFacade submit;
 
     public void enterFlockDetails(String speciey, String flock, String dairy) {
-
+        getDriver().manage().window().maximize();
         Select select = new Select(find("//select[@id='species_etid']"));
         select.selectByIndex(2);
 
@@ -30,7 +30,7 @@ public class FlockPage extends PageObject {
 
         find("//span[@class='eid-radio__indicator']").click();
 
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
     }
 
 

@@ -32,6 +32,7 @@ public class RegisterNewHoldingPage extends PageObject {
     private WebElementFacade submit;
 
     public void enterPrimaryHoldingDetails( String cph, String addr1, String addr2, String town, String county, String postCode) {
+        getDriver().manage().window().maximize();
         holdingCph.clear();
         holdingCph.type(cph);
         holdingStreet.clear();
@@ -45,6 +46,6 @@ public class RegisterNewHoldingPage extends PageObject {
         holdingPostcode.clear();
         holdingPostcode.type(postCode);
 
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
     }
 }

@@ -5,6 +5,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.JavascriptExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +32,9 @@ public class LoginPage extends PageObject {
 	public void verifyTitle() {
 		openUrl("https://devc.eidcymru.org/en/auth/login");
 		assertThat(getTitle(),containsString("EIDCymru.org"));
-	}
+		}
 	public void login(String user, String pwd) {
+		getDriver().manage().window().maximize();
 		typeInto(username, user);
 		typeInto(password, pwd);
 		submit.click();
