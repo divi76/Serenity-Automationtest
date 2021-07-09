@@ -39,6 +39,7 @@ public class YourDetailsPage extends PageObject {
     private WebElementFacade submit;
 
     public void enterYourDetails(String name, String keeperCrn, String landline, String mobile, String street, String locality, String town, String county, String postCode) {
+        getDriver().manage().window().fullscreen();
         keeperName.clear();
         keeperName.type(name);
         crn.clear();
@@ -58,7 +59,8 @@ public class YourDetailsPage extends PageObject {
         keeperPostcode.clear();
         keeperPostcode.type(postCode);
 
-        submit.click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+
     }
 
 }

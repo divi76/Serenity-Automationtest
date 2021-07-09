@@ -25,6 +25,7 @@ public class CreateNewAccountPage extends PageObject {
     WebElementFacade submit;
 
     public void enterAccountDetails(String user, String mail, String pwd, String cpwd) {
+        getDriver().manage().window().maximize();
         name.clear();
         name.type(user);
 

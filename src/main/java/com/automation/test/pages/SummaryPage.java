@@ -11,6 +11,7 @@ public class SummaryPage extends PageObject {
     private WebElementFacade submit;
 
     public void clickOnSubmit() {
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        getDriver().manage().window().maximize();
+        submit.click();;
     }
 }

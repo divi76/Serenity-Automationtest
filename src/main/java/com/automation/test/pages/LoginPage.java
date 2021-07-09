@@ -34,6 +34,7 @@ public class LoginPage extends PageObject {
 		assertThat(getTitle(),containsString("EIDCymru.org"));
 		}
 	public void login(String user, String pwd) {
+		getDriver().manage().window().maximize();
 		typeInto(username, user);
 		typeInto(password, pwd);
 		submit.click();
