@@ -59,7 +59,7 @@ public class YourDetailsPage extends PageObject {
         keeperPostcode.clear();
         keeperPostcode.type(postCode);
 
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", submit);
+        submit.click();
 
     }
 
