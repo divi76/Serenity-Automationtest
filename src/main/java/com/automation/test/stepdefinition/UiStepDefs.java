@@ -1,6 +1,7 @@
 package com.automation.test.stepdefinition;
 
 import com.automation.test.steps.LoginSteps;
+import com.automation.test.steps.MoveSteps;
 import com.automation.test.steps.RegisterSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,11 +14,13 @@ public class UiStepDefs {
     private LoginSteps loginSteps;
     @Steps
     private RegisterSteps registerSteps;
+    @Steps
+    private MoveSteps moveSteps;
 
     @Given("I am on the application")
     public void i_am_on_the_application() {
         loginSteps.verifyTitle();
-    }
+        }
 
     @When("I navigate to Login Page and enter {string} {string}")
     public void iNavigateToLoginPageAndEnter(String user, String password) {
@@ -78,6 +81,62 @@ public class UiStepDefs {
     @Given("I access the eidcymru landing page")
     public void iAccessTheEidcymruLandingPage() {
         loginSteps.accessLandingPage();
+    }
+
+
+    @Then("I should get My Dashboard page")
+    public void iShouldGetMyDashboardPage() {
+        moveSteps.navigateToDashboard();
+    }
+
+    @And("Click on setup")
+    public void clickOnSetup() {
+        moveSteps.clickSetup();
+    }
+
+    @And("I click on continue")
+    public void iClickOnContinue() {
+        moveSteps.clickContinue();
+    }
+
+    @And("I click on save and continue")
+    public void iClickOnSaveAndContinue() {
+        moveSteps.clickSaveContinue();
+    }
+
+    @And("I enter the destination details using {string} {string}")
+    public void iEnterTheDestinationDetailsUsing(String cph, String YES) {
+        moveSteps.enterDestinationDetails(cph,YES);
+    }
+
+    @And("I enter the animal details using {string} {string} {string}")
+    public void iEnterTheAnimalDetailsUsing(String flock, String id, String movementQty) {
+        moveSteps.enterAnimalDetails(flock,id,movementQty);
+    }
+
+    @And("I click on add tags and enter <animals moving>")
+    public void iClickOnAddTagsAndEnterAnimalsMoving() {
+        moveSteps.clickAddTags();
+    }
+
+    @Then("I can see the summary page and click on setup button")
+    public void iCanSeeTheSummaryPageAndClickOnSetupButton() {
+        moveSteps.clickOnSetup();
+    }
+
+    @And("I can see the confirmation page for setup a movement")
+    public void iCanSeeTheConfirmationPageForSetupAMovement() {
+        moveSteps.verifySetupConfirmation();
+    }
+
+    @Then("I click on view or print this move button")
+    public void iClickOnViewOrPrintThisMoveButton() {
+        moveSteps.clickPrint();
+    }
+
+    @And("I can see the movement details departing page")
+    public void iCanSeeTheMovementDetailsDepartingPage() {
+        moveSteps.verifyDetails();
     }
 }
 

@@ -30,7 +30,8 @@ public class FlockPage extends PageObject {
 
         find("//span[@class='eid-radio__indicator']").click();
 
-        submit.click();
+        //submit.click();
+        evaluateJavascript("arguments[0].click();",submit);
     }
 
 
