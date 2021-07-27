@@ -23,7 +23,7 @@ Feature: New user registration and login
 
     Examples:
       | User    | Password  |
-      | keeperb | Password1 |
+      | keeperb | Password@123456  |
       | keepera | Password1 |
 
   @login
@@ -36,7 +36,7 @@ Feature: New user registration and login
       | User     | Password    |
       | keeperb1 | Passwoord11 |
 
-  @movement
+  @setup
   Scenario Outline:successful setup a movement happening in the future
     Given I am on the application
     When I navigate to Login Page and enter "<User>" "<Password>"
@@ -54,47 +54,48 @@ Feature: New user registration and login
     And I can see the movement details departing page
     Examples:
       | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password1 | 53/999/0029 | YES        | 123456      | 7  | 1        |
-#
-#  @movement
-#    Scenario Outline:successful report animals leaving
-#      Given I am on the application
-#      When login with valid credentials "<User>" "<Password>"
-#      Then I should get My Dashboard page
-#      And Click on report
-#      And I click on reportanimalsleaving
-#      And I click on save and continue
-#      And I enter the destinationcph using "<Destination CPH>" "<Sell YES/NO>"
-#      And I click on save and continue
-#      And I enter the animal details using "<flock>" "<id>"
-#      And I click on add tags and enter <animals moving>
-#      And I click on save and continue
-#      And I click on save and continue
-#      Then I can see the summary page and click on report button
-#      And I can see the confirmation page for report a movement
-#      Then I click on view or print this move button
-#      And I can see the movement details departing page
-#
-#  @movement
-#  Scenario Outline:successful report animals arriving
-#    Given I am on the application
-#    When login with valid credentials "<User>" "<Password>"
-#    Then I should get My Dashboard page
-#    And Click on report
-#    And I click on reportanimalsarriving
-#    And I enter animals details using "<buyanimals>","<arrival date>"
-#    And I click on save and continue
-#    And I enter departure details using "<departure cph>","<departure cph>"
-#    And I click on save and continue
-#    And I enter the animal details using "<flock>" "<id>"
-#    And I click on add tags and enter <animals moving>
-#    And I click on save and continue
-#    And I click on save and continue
-#    Then I can see the summary page and click on report button
-#    And I can see the confirmation page for report a movement
-#    Then I click on view or print this move button
-#    And I can see the movement details departing page
+      | keeperb | Password@123456 | 53/999/0029 | YES        | 123456      | 7  | 1   |
 
+  @report
+    Scenario Outline:successful report animals leaving
+      Given I am on the application
+      When login with valid credentials "<User>" "<Password>"
+      Then I should get My Dashboard page
+      And Click on report
+      And I click on report animals leaving
+      And I click on save and continue
+      And I enter the destination details using "<CPH>" "<SellOption>"
+      And I click on save and continue
+      And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
+      And I click on save and continue
+      Then I can see the summary page and click on report button
+      And I can see the confirmation page for report a movement
+      Then I click on view or print this move button
+      And I can see the movement details departing page
+    Examples:
+      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
+      | keeperb |  Password@123456 | 53/999/0029 | YES        | 123456      | 7  | 1   |
+
+  @report
+  Scenario Outline:successful report animals arriving
+    Given I am on the application
+    When login with valid credentials "<User>" "<Password>"
+    Then I should get My Dashboard page
+    And Click on report
+    And I click on report animals arriving
+    And I enter animals details using "<SellOption>" "<ArrivalDate>"
+    And I click on save and continue
+    And I enter departure details using "<CPH>","<DepartureDate>"
+    And I click on save and continue
+    And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
+    And I click on save and continue
+    Then I can see the summary page and click on report button
+    And I can see the confirmation page for report a movement
+    Then I click on view or print this move button
+    And I can see the movement details departing page
+   Examples:
+      | User    | Password | SellOption | ArrivalDate | CPH | DepartureDate | FlockNumber | ID | Quantity |
+      | keeperb |  Password@123456  | YES |Today's Date |  53/999/0029 | Today's Date | 123456     | 7  | 1   |
 
 
 

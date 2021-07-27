@@ -10,5 +10,6 @@ public class TransportDetailsPage extends PageObject {
 
     public void clickSaveContinue() {
         saveContinue.click();
+        evaluateJavascript("arguments[0].click();",saveContinue);
     }
 }

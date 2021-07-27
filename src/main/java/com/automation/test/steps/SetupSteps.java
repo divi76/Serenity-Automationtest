@@ -3,10 +3,9 @@ package com.automation.test.steps;
 import com.automation.test.pages.*;
 import net.thucydides.core.annotations.Step;
 
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class MoveSteps
+public class SetupSteps
 {
     private MyDashboardPage myDashboardPage;
     private SetupMovePage setupMovePage;
@@ -14,8 +13,8 @@ public class MoveSteps
     private DestinationDetailsPage destinationDetailsPage;
     private AnimalDetailsPage animalDetailsPage;
     private TransportDetailsPage transportDetailsPage;
-    private SetupSuummaryDetailsPage setupSuummaryDetailsPage;
-    private SetupConfrimationPage setupConfrimationPage;
+    private SetupSummaryDetailsPage setupSummaryDetailsPage;
+    private SetupConfirmationPage setupConfirmationPage;
     private ViewSetupPDFPage viewSetupPDFPage;
 
     @Step
@@ -45,16 +44,16 @@ public class MoveSteps
     }
     @Step
     public void clickOnSetup() {
-        setupSuummaryDetailsPage.clickOnSetup();
+        setupSummaryDetailsPage.clickOnSetup();
 
     }
     @Step
     public void verifySetupConfirmation() {
-        setupConfrimationPage.verifySetupConfirmation();
+        setupConfirmationPage.verifySetupConfirmation();
     }
     @Step
     public void clickPrint() {
-        setupConfrimationPage.clickPrint();
+        setupConfirmationPage.clickPrint();
     }
     @Step
     public void verifyDetails() {
