@@ -9,6 +9,8 @@ public class SetupMovePage extends PageObject {
     @FindBy(xpath = "//a[contains(text(),'Setup')]")
     private WebElementFacade setUp;
     public void clickSetup() {
-        setUp.click();
+
+        //setUp.click();
+        evaluateJavascript("arguments[0].click();",setUp);
     }
 }

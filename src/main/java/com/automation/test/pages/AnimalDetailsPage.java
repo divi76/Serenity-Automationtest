@@ -29,11 +29,13 @@ public class AnimalDetailsPage extends PageObject {
         flockId.sendKeys(flock);
         idTag.clear();
         idTag.sendKeys(id);
-        addTags.click();
+        //addTags.click();
+        evaluateJavascript("arguments[0].click();",addTags);
 
         movement_qty.clear();
         movement_qty.sendKeys(movementQty);
 
-        saveContinue.click();
+        //saveContinue.click();
+        evaluateJavascript("arguments[0].click();",saveContinue);
     }
 }

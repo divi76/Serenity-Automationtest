@@ -15,14 +15,18 @@ public class DestinationDetailsPage extends PageObject {
     WebElementFacade cph;
 
     public void clickSaveContinue() {
-        saveAndContinue.click();
+
+        //saveAndContinue.click();
+        evaluateJavascript("arguments[0].click();",saveAndContinue);
     }
 
     public void enterCphAndSellOption(String cphNumber, String sellOptionValue) {
         cph.clear();
         cph.sendKeys(cphNumber);
         if("YES".equalsIgnoreCase(sellOptionValue)) {
-            sellOption.click();
+           // sellOption.click();
+            evaluateJavascript("arguments[0].click();",sellOption);
+
         }
     }
 }

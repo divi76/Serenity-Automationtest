@@ -9,6 +9,8 @@ public class DepartureDetailsPage extends PageObject {
     @FindBy(id = "off")
     WebElementFacade continueBtn;
     public void clickContinue() {
-        continueBtn.click();
+        //continueBtn.click();
+        evaluateJavascript("arguments[0].click();",continueBtn);
+
     }
 }
