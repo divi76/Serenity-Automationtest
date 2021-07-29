@@ -34,7 +34,8 @@ public class RegisterPage extends PageObject {
 
     public void clickRegister() {
         getDriver().manage().window().maximize();
-        register.click();
+        evaluateJavascript("arguments[0].click();",register);
+        //register.click();
     }
 
 }
