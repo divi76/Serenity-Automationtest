@@ -100,8 +100,13 @@ public class UiStepDefs {
     }
 
     @And("I click on save and continue")
-    public void iClickOnSaveAndContinue() {
+    public void iClickOnSaveAndContinue(){
         setupSteps.clickSaveContinue();
+    }
+
+    @And("I click on save and continue in transport details page")
+    public void ClickOnSaveAndContinueTransportDetailsPage(){
+        setupSteps.clickSaveContinueTransportdetailPage();
     }
 
     @And("I enter the destination details using {string} {string}")

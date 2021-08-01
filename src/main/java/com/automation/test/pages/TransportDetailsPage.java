@@ -5,11 +5,12 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class TransportDetailsPage extends PageObject {
-    @FindBy(id = "submit")
-    WebElementFacade saveContinue;
+    @FindBy(xpath = "//*[@id='transport_auth_number']")
+    WebElementFacade transportAuthorisationNumber;
 
     public void clickSaveContinue() {
-        saveContinue.click();
-        evaluateJavascript("arguments[0].click();",saveContinue);
+
+        transportAuthorisationNumber.typeAndEnter("");
+//        evaluateJavascript("arguments[0].click();",saveContinue);
     }
 }

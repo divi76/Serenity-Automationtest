@@ -5,10 +5,10 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 public class AnimalDetailsPage extends PageObject {
-    @FindBy(id = "submit")
+    @FindBy(xpath = "//*[contains(text(), 'Save and continue')]")
     WebElementFacade saveContinue;
 
-    @FindBy(className = "eid-button eid-button--sm")
+    @FindBy(xpath = "//*[@id='panel-0']//*[contains(text(), 'Add tags') and @type='submit']")
     WebElementFacade addTags;
 
     @FindBy(id = "iflock_id")
@@ -25,17 +25,20 @@ public class AnimalDetailsPage extends PageObject {
     }
 
     public void enterDetails(String flock, String id, String movementQty) {
-        flockId.clear();
-        flockId.sendKeys(flock);
+//        flockId.clear();
+//        flockId.sendKeys(flock);
         idTag.clear();
+        waitFor(20);
         idTag.sendKeys(id);
-        //addTags.click();
-        evaluateJavascript("arguments[0].click();",addTags);
+        addTags.click();
+
 
         movement_qty.clear();
-        movement_qty.sendKeys(movementQty);
+        movement_qty.typeAndEnter(movementQty);
 
-        //saveContinue.click();
-        evaluateJavascript("arguments[0].click();",saveContinue);
+//        waitFor(20);
+//        saveContinue.click();
+
+//        evaluateJavascript("arguments[0].click();",saveContinue);
     }
 }

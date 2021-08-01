@@ -47,14 +47,14 @@ Feature: New user registration and login
     And I enter the destination details using "<CPH>" "<SellOption>"
     And I click on save and continue
     And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
-    And I click on save and continue
+    And I click on save and continue in transport details page
     Then I can see the summary page and click on setup button
     And I can see the confirmation page for setup a movement
     Then I click on view or print this move button
     And I can see the movement details departing page
     Examples:
       | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password@123456 | 53/999/0029 | YES        | 123456      | 7  | 1   |
+      | keeperb | Password@123456 | 53/024/0017 | YES        | 123456      | 7  | 1   |
 
   @report
     Scenario Outline:successful report animals leaving
