@@ -30,8 +30,15 @@ public class SetupSteps
         departureDetailsPage.clickContinue();
     }
     @Step
-    public void clickSaveContinue() {
+    public void clickSaveContinue()
+    {
         destinationDetailsPage.clickSaveContinue();
+    }
+
+    @Step
+    public void clickSaveContinueTransportdetailPage()
+    {
+        transportDetailsPage.clickSaveContinue();
     }
     @Step
     public void clickContinueOnTransportPage() {

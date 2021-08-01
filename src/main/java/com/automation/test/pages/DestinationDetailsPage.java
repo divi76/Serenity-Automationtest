@@ -8,24 +8,37 @@ public class DestinationDetailsPage extends PageObject {
     @FindBy(id = "submit")
     WebElementFacade saveAndContinue;
 
-    @FindBy(id = "has_keeper_changed_yes")
+    @FindBy(xpath = "//*[@id='has_keeper_changed']/div/label[1]/span[2]")
     WebElementFacade sellOption;
+
+    @FindBy(xpath = "//*[@id='destination_address']")
+    WebElementFacade address;
 
     @FindBy(id = "destination_cph")
     WebElementFacade cph;
 
+    @FindBy(id = "iflock_id")
+    WebElementFacade flockId;
+
     public void clickSaveContinue() {
 
-        //saveAndContinue.click();
-        evaluateJavascript("arguments[0].click();",saveAndContinue);
+        waitFor(30);
+        saveAndContinue.click();
+//        waitForAngularRequestsToFinish();
+
+//        evaluateJavascript("arguments[0].click();",saveAndContinue);
+//        waitFor(flockId);
     }
 
     public void enterCphAndSellOption(String cphNumber, String sellOptionValue) {
         cph.clear();
         cph.sendKeys(cphNumber);
+        waitForTextToDisappear("Address not shown for this movement");
+//        waitFor(20);
         if("YES".equalsIgnoreCase(sellOptionValue)) {
-           // sellOption.click();
-            evaluateJavascript("arguments[0].click();",sellOption);
+            sellOption.click();
+
+//            evaluateJavascript("arguments[0].click();",sellOption);
 
         }
     }

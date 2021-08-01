@@ -9,17 +9,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SetupConfirmationPage extends PageObject {
 
-   // @FindBy(className = "eid-button eid-button--lg")
+   @FindBy(xpath = "//*[@id='content']//h3")
+    WebElementFacade confirmation;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div/button[1]")
     WebElementFacade viewPdf;
 
     public void verifySetupConfirmation() {
-        assertThat( find("//h3[@class='eid-panel---success eid-panel---success']").getText(), containsString("Movement created"));
+        waitForTextToAppear("recorded");
+        assertThat( confirmation.getText(), containsString("has been recorded"));
+
 
     }
 
     public void clickPrint() {
-       // viewPdf.click();
-        evaluateJavascript("arguments[0].click();",viewPdf);
+        viewPdf.click();
+//        evaluateJavascript("arguments[0].click();",viewPdf);
 
 
     }
