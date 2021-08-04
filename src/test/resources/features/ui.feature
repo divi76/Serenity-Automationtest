@@ -23,8 +23,8 @@ Feature: New user registration and login
 
     Examples:
       | User    | Password  |
-      | keeperb | Password@123456  |
-      | keepera | Password1 |
+      | keeperb | Password123456!  |
+      | keepera | Password123456! |
 
   @login
   Scenario Outline:Verify invalid login details
@@ -54,7 +54,7 @@ Feature: New user registration and login
     And I can see the movement details departing page
     Examples:
       | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password@123456 | 53/024/0017 | YES        | 123456      | 7  | 1   |
+      | keeperb | Password123456! | 53/024/0017 | YES        | 123456      | 7  | 1   |
 
   @report
     Scenario Outline:successful report animals leaving
@@ -74,7 +74,7 @@ Feature: New user registration and login
       And I can see the movement details departing page
     Examples:
       | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb |  Password@123456 | 53/999/0029 | YES        | 123456      | 7  | 1   |
+      | keeperb |  Password123456! | 53/999/0029 | YES        | 123456      | 7  | 1   |
 
   @report
   Scenario Outline:successful report animals arriving
@@ -95,7 +95,7 @@ Feature: New user registration and login
     And I can see the movement details departing page
    Examples:
       | User    | Password | SellOption | ArrivalDate | CPH | DepartureDate | FlockNumber | ID | Quantity |
-      | keeperb |  Password@123456  | YES |Today's Date |  53/999/0029 | Today's Date | 123456     | 7  | 1   |
+      | keeperb |  Password123456!  | YES |Today's Date |  53/999/0029 | Today's Date | 123456     | 7  | 1   |
 
 
 
