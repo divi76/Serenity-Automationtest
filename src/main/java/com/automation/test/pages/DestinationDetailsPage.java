@@ -3,6 +3,7 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebDriver;
 
 public class DestinationDetailsPage extends PageObject {
     @FindBy(id = "submit")
@@ -31,8 +32,11 @@ public class DestinationDetailsPage extends PageObject {
     }
 
     public void enterCphAndSellOption(String cphNumber, String sellOptionValue) {
+        WebDriver myDriver = getDriver();
+        myDriver.manage().deleteAllCookies();
         cph.clear();
-        cph.sendKeys(cphNumber);
+        cph.type(cphNumber);
+//        cph.sendKeys(cphNumber);
         waitForTextToDisappear("Address not shown for this movement");
 //        waitFor(20);
         if("YES".equalsIgnoreCase(sellOptionValue)) {
