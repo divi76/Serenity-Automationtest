@@ -16,7 +16,7 @@ public class ViewSetupPDFPage extends  PageObject {
     WebElementFacade confirmation;
 
     public void verifyDetails() {
-        waitForTextToAppear("Movement details Departing");
-        assertThat( confirmation.getText(), containsString("Movement details Departing"));
+        waitForTextToAppear("Movement details Arriving");
+        assertThat( confirmation.getText(), containsString("Movement details Arriving"));
     }
 }

@@ -44,7 +44,7 @@ public class RegisterSteps {
     }
 
     @Step
-    public void clickOnSubmit() {
+    public void clickOnSubmit() throws InterruptedException {
         summaryPage.clickOnSubmit();
     }
 

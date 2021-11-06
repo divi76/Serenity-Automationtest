@@ -13,8 +13,8 @@ Feature: New user registration and login
     And I can see the confirmation page for account creation
 
     Examples:
-      | User     | Email                 | Password     | ConfirmPassword | CPH         | Address1      | Address2      | Town   | County    | Postcode | Name     | CRN      | Landline     | Mobile      | Address3      | Address4    | Town1  | County1   | Postcode1 | Species | Flock  | Dairy |
-      | tester29 | tester29@eidcymru.org | Password@123 | Password@123    | 53/999/0029 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester29 | A9098029 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 789029 | Dairy |
+      | User       | Email              | Password        | ConfirmPassword | CPH         | Address1      | Address2      | Town   | County    | Postcode | Name     | CRN      | Landline     | Mobile      | Address3      | Address4    | Town1  | County1   | Postcode1 | Species | Flock  | Dairy |
+      | tester0811 | nag.divi@gmail.com | Password123456! | Password123456! | 55/048/0197 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester29 | A0035154 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 750043 | Dairy |
 
   @login
   Scenario Outline:Successful Login with multiple users
@@ -23,7 +23,7 @@ Feature: New user registration and login
 
     Examples:
       | User    | Password  |
-      | keeperb | Password@123456  |
+      | keeperb | Password1 |
       | keepera | Password1 |
 
   @login
@@ -34,7 +34,7 @@ Feature: New user registration and login
 
     Examples:
       | User     | Password    |
-      | keeperb1 | Passwoord11 |
+      | keeperb1 | Password123 |
 
   @setup
   Scenario Outline:successful setup a movement happening in the future
@@ -54,48 +54,50 @@ Feature: New user registration and login
     And I can see the movement details departing page
     Examples:
       | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password@123456 | 53/024/0017 | YES        | 123456      | 7  | 1   |
+      | keeperb | Password1 | 55/048/0197 | YES        | 750043      | 7  | 1        |
 
-  @report
-    Scenario Outline:successful report animals leaving
-      Given I am on the application
-      When login with valid credentials "<User>" "<Password>"
-      Then I should get My Dashboard page
-      And Click on report
-      And I click on report animals leaving
-      And I click on save and continue
-      And I enter the destination details using "<CPH>" "<SellOption>"
-      And I click on save and continue
-      And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
-      And I click on save and continue
-      Then I can see the summary page and click on report button
-      And I can see the confirmation page for report a movement
-      Then I click on view or print this move button
-      And I can see the movement details departing page
-    Examples:
-      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb |  Password@123456 | 53/999/0029 | YES        | 123456      | 7  | 1   |
-
-  @report
-  Scenario Outline:successful report animals arriving
+  @report1
+  Scenario Outline:successful report animals leaving
     Given I am on the application
-    When login with valid credentials "<User>" "<Password>"
+    When I navigate to Login Page and enter "<User>" "<Password>"
     Then I should get My Dashboard page
     And Click on report
-    And I click on report animals arriving
-    And I enter animals details using "<SellOption>" "<ArrivalDate>"
+    And I click on report animals leaving
     And I click on save and continue
-    And I enter departure details using "<CPH>","<DepartureDate>"
+    And I enter the destination details using "<CPH>" "<SellOption>"
     And I click on save and continue
     And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
     And I click on save and continue
     Then I can see the summary page and click on report button
     And I can see the confirmation page for report a movement
+    And I click on report button
     Then I click on view or print this move button
     And I can see the movement details departing page
-   Examples:
-      | User    | Password | SellOption | ArrivalDate | CPH | DepartureDate | FlockNumber | ID | Quantity |
-      | keeperb |  Password@123456  | YES |Today's Date |  53/999/0029 | Today's Date | 123456     | 7  | 1   |
+    Examples:
+      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
+      | keeperb | Password1 | 53/999/0029 | YES        | 123456      | 7  | 1        |
+
+  @report2
+  Scenario Outline:successful report animals arriving
+    Given I am on the application
+    When I navigate to Login Page and enter "<User>" "<Password>"
+    Then I should get My Dashboard page
+    And Click on report
+    And I click on report animals arriving
+    And I enter animals details using "<SellOption>"
+    And I click on save and continue
+    And I enter departure details using "<CPH>"
+    And I click on save and continue
+    And I enter the animal details using "<FlockNumber>" "<ID>" "<Quantity>"
+    And I click on save and continue
+    Then I can see the summary page and click on report button
+    And I can see the confirmation page for report a movement
+    And I click on report button
+    Then I click on view or print this move button
+    And I can see the movement details departing page
+    Examples:
+      | User    | Password  | SellOption | CPH         |FlockNumber | ID | Quantity |
+      | keeperb | Password1 | YES        | 53/999/0029 | 123456      | 7  | 1        |
 
 
 

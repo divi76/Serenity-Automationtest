@@ -5,25 +5,27 @@ import net.thucydides.core.annotations.Step;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SetupSteps
+public class ReportSteps
 {
     private MyDashboardPage myDashboardPage;
-    private SetupMovePage setupMovePage;
+    private ReportMovePage reportMovePage;
     private DepartureDetailsPage departureDetailsPage;
     private DestinationDetailsPage destinationDetailsPage;
     private AnimalDetailsPage animalDetailsPage;
     private TransportDetailsPage transportDetailsPage;
-    private SetupSummaryDetailsPage setupSummaryDetailsPage;
-    private SetupConfirmationPage setupConfirmationPage;
-    private ViewSetupPDFPage viewSetupPDFPage;
+    private ReportSummaryDetailsPage reportSummaryDetailsPage;
+    private ReportConfirmationPage reportConfirmationPage;
+    private ViewReportPDFPage viewReportPDFPage;
+    private SelectSpeciesPage selectSpeciesPage;
+    private ArrivalDetailsPage arrivalDetailsPage;
 
     @Step
     public void navigateToDashboard() {
         myDashboardPage.verifyTitle();
     }
     @Step
-    public void clickSetup() {
-        setupMovePage.clickSetup();
+    public void clickReport() {
+        reportMovePage.clickReport();
     }
     @Step
     public void clickContinue() {
@@ -32,12 +34,6 @@ public class SetupSteps
     @Step
     public void clickSaveContinue() throws InterruptedException {
         destinationDetailsPage.clickSaveContinue();
-    }
-
-    @Step
-    public void clickSaveContinueTransportdetailPage()
-    {
-        transportDetailsPage.clickSaveContinue();
     }
     @Step
     public void clickContinueOnTransportPage() {
@@ -49,28 +45,50 @@ public class SetupSteps
         animalDetailsPage.clickAddTags();
     }
     @Step
-    public void clickOnSetup() {
-        setupSummaryDetailsPage.clickOnSetup();
+    public void clickOnReport() {
+        reportSummaryDetailsPage.clickOnReport();
 
     }
     @Step
-    public void verifySetupConfirmation() {
-        setupConfirmationPage.verifySetupConfirmation();
+    public void verifyReportConfirmation() {
+        reportConfirmationPage.verifyReportConfirmation();
     }
     @Step
     public void clickPrint() {
-        setupConfirmationPage.clickPrint();
+        reportConfirmationPage.clickPrint();
     }
     @Step
     public void verifyDetails() {
-        viewSetupPDFPage.verifyDetails();
+        viewReportPDFPage.verifyDetails();
     }
-
+    @Step
     public void enterDestinationDetails(String cph, String yesOrNo) {
         destinationDetailsPage.enterCphAndSellOption(cph,yesOrNo);
     }
-
+    @Step
     public void enterAnimalDetails(String flock, String id, String movementQty) {
         animalDetailsPage.enterDetails(flock,id, movementQty);
     }
+
+    @Step
+    public void reportAnimalLeaving() {
+        selectSpeciesPage.clickAnimalLeaving();
+    }
+
+    @Step
+    public void reportAnimalArriving() {
+        selectSpeciesPage.clickAnimalArriving();
+    }
+    @Step
+    public void enterAnimalArrivalDetails(String sellOption) {
+        arrivalDetailsPage.selectAnimalBuyOption(sellOption);
+        arrivalDetailsPage.selectArrivalDate();
+    }
+
+    @Step
+    public void enterAnimalDepartureDetails(String cph) {
+        departureDetailsPage.enterDepartureCph(cph);
+        departureDetailsPage.selectDepartureDate();
+    }
 }
+

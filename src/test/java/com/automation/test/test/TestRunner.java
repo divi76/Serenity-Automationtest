@@ -8,7 +8,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        tags = {"@setup"},
+        tags = {"@report2"},
         plugin = {"pretty"},
         features = "src/test/resources/features",
         glue = {"com.automation.test.stepdefinition"}

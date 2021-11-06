@@ -1,6 +1,7 @@
 package com.automation.test.stepdefinition;
 
 import com.automation.test.steps.LoginSteps;
+import com.automation.test.steps.ReportSteps;
 import com.automation.test.steps.SetupSteps;
 import com.automation.test.steps.RegisterSteps;
 import io.cucumber.java.en.And;
@@ -16,6 +17,8 @@ public class UiStepDefs {
     private RegisterSteps registerSteps;
     @Steps
     private SetupSteps setupSteps;
+    @Steps
+    private ReportSteps reportSteps;
 
     @Given("I am on the application")
     public void i_am_on_the_application() {
@@ -69,7 +72,7 @@ public class UiStepDefs {
     }
 
     @Then("I can see the summary page and click on submit button")
-    public void iCanSeeTheSummaryPageAndClickOnSubmitButton() {
+    public void iCanSeeTheSummaryPageAndClickOnSubmitButton() throws InterruptedException {
         registerSteps.clickOnSubmit();
     }
 
@@ -89,6 +92,7 @@ public class UiStepDefs {
         setupSteps.navigateToDashboard();
     }
 
+    //@And("Click on (.*)")
     @And("Click on setup")
     public void clickOnSetup() {
         setupSteps.clickSetup();
@@ -100,7 +104,7 @@ public class UiStepDefs {
     }
 
     @And("I click on save and continue")
-    public void iClickOnSaveAndContinue(){
+    public void iClickOnSaveAndContinue() throws InterruptedException {
         setupSteps.clickSaveContinue();
     }
 
@@ -142,6 +146,46 @@ public class UiStepDefs {
     @And("I can see the movement details departing page")
     public void iCanSeeTheMovementDetailsDepartingPage() {
         setupSteps.verifyDetails();
+    }
+
+    @And("Click on report")
+    public void clickOnReport() {
+        reportSteps.clickReport();
+    }
+
+    @And("I click on report animals leaving")
+    public void iClickOnReportAnimalsLeaving() {
+        reportSteps.reportAnimalLeaving();
+    }
+
+    @Then("I can see the summary page and click on report button")
+    public void iCanSeeTheSummaryPageAndClickOnReportButton() {
+        
+    }
+
+    @And("I can see the confirmation page for report a movement")
+    public void iCanSeeTheConfirmationPageForReportAMovement() {
+        
+    }
+
+    @And("I click on report animals arriving")
+    public void iClickOnReportAnimalsArriving() {
+        reportSteps.reportAnimalArriving();
+    }
+
+    @And("I enter animals details using {string}")
+    public void iEnterAnimalsDetailsUsing(String sellOption) {
+        reportSteps.enterAnimalArrivalDetails(sellOption);
+    }
+
+    @And("I enter departure details using {string}")
+    public void iEnterDepartureDetailsUsing(String cph) {
+        reportSteps.enterAnimalDepartureDetails(cph);
+    }
+
+    @And("I click on report button")
+    public void iClickOnReportButton() throws InterruptedException {
+        registerSteps.clickOnSubmit();
     }
 }
 
