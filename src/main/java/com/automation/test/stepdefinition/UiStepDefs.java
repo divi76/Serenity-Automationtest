@@ -187,5 +187,10 @@ public class UiStepDefs {
     public void iClickOnReportButton() throws InterruptedException {
         registerSteps.clickOnSubmit();
     }
+
+    @And("I can see the movement details arriving page")
+    public void iCanSeeTheMovementDetailsArrivingPage() {
+        setupSteps.verifyDetails();
+    }
 }
 

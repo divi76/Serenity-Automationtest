@@ -94,7 +94,7 @@ Feature: New user registration and login
     And I can see the confirmation page for report a movement
     And I click on report button
     Then I click on view or print this move button
-    And I can see the movement details departing page
+    And I can see the movement details arriving page
     Examples:
       | User    | Password  | SellOption | CPH         |FlockNumber | ID | Quantity |
       | keeperb | Password1 | YES        | 53/999/0029 | 123456      | 7  | 1        |
