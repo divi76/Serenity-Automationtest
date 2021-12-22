@@ -65,6 +65,10 @@ public class SetupSteps
     public void verifyDetails() {
         viewSetupPDFPage.verifyDetails();
     }
+    @Step
+    public void verifyArrivingDetails() {
+        viewSetupPDFPage.verifyArrivingDetails();
+    }
 
     public void enterDestinationDetails(String cph, String yesOrNo) {
         destinationDetailsPage.enterCphAndSellOption(cph,yesOrNo);
@@ -73,4 +77,9 @@ public class SetupSteps
     public void enterAnimalDetails(String flock, String id, String movementQty) {
         animalDetailsPage.enterDetails(flock,id, movementQty);
     }
+
+    public void selectMoveDate() {
+        setupMovePage.selectMoveDate();
+    }
+
 }

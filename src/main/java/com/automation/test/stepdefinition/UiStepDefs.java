@@ -190,7 +190,17 @@ public class UiStepDefs {
 
     @And("I can see the movement details arriving page")
     public void iCanSeeTheMovementDetailsArrivingPage() {
-        setupSteps.verifyDetails();
+        setupSteps.verifyArrivingDetails();
+    }
+
+    @And("I enter the move date details")
+    public void iEnterTheMoveDateDetails() {
+        setupSteps.selectMoveDate();
+    }
+
+    @And("I enter the report move date details")
+    public void iEnterTheReportMoveDateDetails() {
+        setupSteps.selectMoveDate();
     }
 }
 

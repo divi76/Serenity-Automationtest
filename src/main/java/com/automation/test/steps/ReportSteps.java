@@ -90,5 +90,6 @@ public class ReportSteps
         departureDetailsPage.enterDepartureCph(cph);
         departureDetailsPage.selectDepartureDate();
     }
+
 }
 

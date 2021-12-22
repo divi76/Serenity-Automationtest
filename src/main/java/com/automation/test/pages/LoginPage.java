@@ -14,7 +14,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-@DefaultUrl("https://devc.eidcymru.org/en/auth/login")
+@DefaultUrl("https://stagweb.eidcymru.org/en/auth/login")
 public class LoginPage extends PageObject {
 	private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
 
@@ -30,7 +30,7 @@ public class LoginPage extends PageObject {
 	WebElementFacade loginError;
 
 	public void verifyTitle() {
-		openUrl("https://devc.eidcymru.org/en/auth/login");
+		openUrl("https://stagweb.eidcymru.org/en/auth/login");
 		assertThat(getTitle(),containsString("EIDCymru.org"));
 		}
 	public void login(String user, String pwd) {
@@ -45,6 +45,6 @@ public class LoginPage extends PageObject {
 
 
 	public void accessLandingPage() {
-		openUrl("https://devc.eidcymru.org/");
+		openUrl("https://stagweb.eidcymru.org/");
 	}
 }

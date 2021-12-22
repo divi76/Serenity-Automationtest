@@ -13,8 +13,8 @@ Feature: New user registration and login
     And I can see the confirmation page for account creation
 
     Examples:
-      | User       | Email              | Password        | ConfirmPassword | CPH         | Address1      | Address2      | Town   | County    | Postcode | Name     | CRN      | Landline     | Mobile      | Address3      | Address4    | Town1  | County1   | Postcode1 | Species | Flock  | Dairy |
-      | tester0811 | nag.divi@gmail.com | Password123456! | Password123456! | 55/048/0197 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester29 | A0035154 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 750043 | Dairy |
+      | User       | Email                        | Password        | ConfirmPassword | CPH         | Address1      | Address2      | Town   | County    | Postcode | Name     | CRN      | Landline     | Mobile      | Address3      | Address4    | Town1  | County1   | Postcode1 | Species | Flock  | Dairy |
+      | tester9999 | nnageswararao.divi@gov.wales | Password123456! | Password123456! | 55/055/0024 | 1 Prince Road | Taylor street | London | Middlesex | LD17 5HA | Tester29 | A0023372 | 012345678911 | 07904411111 | 2 Prince Road | Bond street | London | Middlesex | LD18 5HA  | Sheep   | 747771 | Dairy |
 
   @login
   Scenario Outline:Successful Login with multiple users
@@ -22,9 +22,9 @@ Feature: New user registration and login
     When I navigate to Login Page and enter "<User>" "<Password>"
 
     Examples:
-      | User    | Password  |
-      | keeperb | Password1 |
-      | keepera | Password1 |
+      | User     | Password         |
+      | keeper11 | Password1123456! |
+#      | keepera | Password1 |
 
   @login
   Scenario Outline:Verify invalid login details
@@ -43,6 +43,7 @@ Feature: New user registration and login
     Then I should get My Dashboard page
     And Click on setup
     And I click on continue
+    And I enter the move date details
     And I click on save and continue
     And I enter the destination details using "<CPH>" "<SellOption>"
     And I click on save and continue
@@ -53,8 +54,8 @@ Feature: New user registration and login
     Then I click on view or print this move button
     And I can see the movement details departing page
     Examples:
-      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password1 | 55/048/0197 | YES        | 750043      | 7  | 1        |
+      | User     | Password        | CPH         | SellOption | FlockNumber | ID | Quantity |
+      | keeper11 | Password123456! | 55/048/0197 | YES        | 750043      | 7  | 1        |
 
   @report1
   Scenario Outline:successful report animals leaving
@@ -63,6 +64,7 @@ Feature: New user registration and login
     Then I should get My Dashboard page
     And Click on report
     And I click on report animals leaving
+    And I enter the report move date details
     And I click on save and continue
     And I enter the destination details using "<CPH>" "<SellOption>"
     And I click on save and continue
@@ -74,8 +76,8 @@ Feature: New user registration and login
     Then I click on view or print this move button
     And I can see the movement details departing page
     Examples:
-      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
-      | keeperb | Password1 | 53/999/0029 | YES        | 123456      | 7  | 1        |
+      | User     | Password        | CPH         | SellOption | FlockNumber | ID | Quantity |
+      | keeper11 | Password123456! | 53/999/0029 | YES        | 123456      | 7  | 1        |
 
   @report2
   Scenario Outline:successful report animals arriving
@@ -96,8 +98,8 @@ Feature: New user registration and login
     Then I click on view or print this move button
     And I can see the movement details arriving page
     Examples:
-      | User    | Password  | SellOption | CPH         |FlockNumber | ID | Quantity |
-      | keeperb | Password1 | YES        | 53/999/0029 | 123456      | 7  | 1        |
+      | User     | Password        | SellOption | CPH         | FlockNumber | ID | Quantity |
+      | keeper11 | Password123456! | YES        | 53/999/0029 | 123456      | 7  | 1        |
 
 
 

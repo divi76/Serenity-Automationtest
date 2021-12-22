@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 
 import static com.openhtmltopdf.util.Util.sleep;
 
-@DefaultUrl("http://devc.eidcymru.org")
+@DefaultUrl("http://stagweb.eidcymru.org")
 public class RegisterPage extends PageObject {
     private static final Logger log = LoggerFactory.getLogger(RegisterPage.class);
 
