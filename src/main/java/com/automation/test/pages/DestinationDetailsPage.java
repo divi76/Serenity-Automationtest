@@ -1,9 +1,15 @@
 package com.automation.test.pages;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.time.Instant;
 
 public class DestinationDetailsPage extends PageObject {
     @FindBy(id = "submit")
@@ -25,25 +31,29 @@ public class DestinationDetailsPage extends PageObject {
 
         waitFor(30);
         saveAndContinue.click();
-//        waitForAngularRequestsToFinish();
+        waitFor(30);
 
 //        evaluateJavascript("arguments[0].click();",saveAndContinue);
 //        waitFor(flockId);
     }
 
-    public void enterCphAndSellOption(String cphNumber, String sellOptionValue) {
-        WebDriver myDriver = getDriver();
-        myDriver.manage().deleteAllCookies();
-        cph.clear();
+    public void enterCphAndSellOption(String cphNumber, String sellOptionValue) throws InterruptedException {
+
+
         cph.type(cphNumber);
+
 //        cph.sendKeys(cphNumber);
         waitForTextToDisappear("Address not shown for this movement");
 //        waitFor(20);
         if("YES".equalsIgnoreCase(sellOptionValue)) {
             sellOption.click();
-
+        Thread.sleep(3000);
+        clickSaveContinue();
 //            evaluateJavascript("arguments[0].click();",sellOption);
 
         }
     }
+
+
+
 }

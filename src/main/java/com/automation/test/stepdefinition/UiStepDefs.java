@@ -9,7 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class UiStepDefs {
+
     @Steps
     private LoginSteps loginSteps;
     @Steps
@@ -18,7 +22,7 @@ public class UiStepDefs {
     private SetupSteps setupSteps;
 
     @Given("I am on the application")
-    public void i_am_on_the_application() {
+    public void i_am_on_the_application() throws InterruptedException {
         loginSteps.verifyTitle();
         }
 
@@ -99,18 +103,30 @@ public class UiStepDefs {
         setupSteps.clickContinue();
     }
 
+    @And("I select tomorrow's date")
+    public void iselectTomorrowDate() {
+        setupSteps.selectTomorrowDate();
+    }
+
+
     @And("I click on save and continue")
     public void iClickOnSaveAndContinue(){
         setupSteps.clickSaveContinue();
     }
+
+    @And("I click and upload file")
+    public void iClickAndUploadViaFile() throws AWTException, InterruptedException, IOException {
+        setupSteps.UploadViaFile();
+    }
+
 
     @And("I click on save and continue in transport details page")
     public void ClickOnSaveAndContinueTransportDetailsPage(){
         setupSteps.clickSaveContinueTransportdetailPage();
     }
 
-    @And("I enter the destination details using {string} {string}")
-    public void iEnterTheDestinationDetailsUsing(String cph, String YES) {
+    @And("I enter the destination details using {string} {string} and click continue")
+    public void iEnterTheDestinationDetailsUsingClickContinue(String cph, String YES) throws InterruptedException {
         setupSteps.enterDestinationDetails(cph,YES);
     }
 

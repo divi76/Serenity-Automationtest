@@ -6,11 +6,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class SetupMovePage extends PageObject {
 
-    @FindBy(xpath = "//a[contains(text(),'Setup')]")
+    @FindBy(xpath = "//a[contains(text(),'Set up')]")
     private WebElementFacade setUp;
     public void clickSetup() {
 
-        //setUp.click();
-        evaluateJavascript("arguments[0].click();",setUp);
+        setUp.click();
+        //evaluateJavascript("arguments[0].click();",setUp);
     }
 }

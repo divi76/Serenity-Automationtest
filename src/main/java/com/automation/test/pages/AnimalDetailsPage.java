@@ -3,6 +3,16 @@ package com.automation.test.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class AnimalDetailsPage extends PageObject {
     @FindBy(xpath = "//*[contains(text(), 'Save and continue')]")
@@ -20,6 +30,29 @@ public class AnimalDetailsPage extends PageObject {
     @FindBy(id = "movement_qty")
     WebElementFacade movement_qty;
 
+    @FindBy(xpath = "//*[text() ='Or upload via a file']")
+    WebElementFacade uploadViaFile;
+    public void clickUploadViaFile() {
+        uploadViaFile.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div[2]/div/details/span/form/div/div/label/div/button")
+    WebElementFacade fileUpload;
+    @FindBy(xpath = "//*[@id=\"submit\"]/span[text() = 'Upload']")
+    WebElementFacade uploadButton;
+
+    public void uploadAFile() throws InterruptedException, AWTException, IOException {
+        clickUploadViaFile();
+        fileUpload.click();
+        String fileRelativePath = "src\\test\\resources\\data\\filedata.txt";
+        String cwd = System.getProperty("user.dir");
+        String path = Paths.get(cwd,fileRelativePath).toString();
+        String autoITExecutable = "src\\test\\resources\\scripts\\upload.exe " + path;
+        Runtime.getRuntime().exec(autoITExecutable);
+        Thread.sleep(3000);
+        uploadButton.click();
+
+    }
 
     public void clickAddTags() {
     }

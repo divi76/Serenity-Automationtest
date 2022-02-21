@@ -3,6 +3,9 @@ package com.automation.test.steps;
 import com.automation.test.pages.*;
 import net.thucydides.core.annotations.Step;
 
+import java.awt.*;
+import java.io.IOException;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SetupSteps
@@ -29,12 +32,20 @@ public class SetupSteps
     public void clickContinue() {
         departureDetailsPage.clickContinue();
     }
+
+    @Step
+    public void selectTomorrowDate() {
+        departureDetailsPage.selectTomorrowDate();
+    }
     @Step
     public void clickSaveContinue()
     {
         destinationDetailsPage.clickSaveContinue();
     }
-
+    @Step
+    public void UploadViaFile() throws AWTException, InterruptedException, IOException {
+        animalDetailsPage.uploadAFile();
+    }
     @Step
     public void clickSaveContinueTransportdetailPage()
     {
@@ -67,7 +78,7 @@ public class SetupSteps
         viewSetupPDFPage.verifyDetails();
     }
 
-    public void enterDestinationDetails(String cph, String yesOrNo) {
+    public void enterDestinationDetails(String cph, String yesOrNo) throws InterruptedException {
         destinationDetailsPage.enterCphAndSellOption(cph,yesOrNo);
     }
 

@@ -98,7 +98,21 @@ Feature: New user registration and login
       | keeperb |  Password123456!  | YES |Today's Date |  53/999/0029 | Today's Date | 123456     | 7  | 1   |
 
 
+  @setup_movement_upload
+  Scenario Outline:successful setup a movement happening in the future
+    Given I am on the application
+    When I navigate to Login Page and enter "<User>" "<Password>"
+    Then I should get My Dashboard page
+    And Click on setup
+    And I click on continue
+    And I select tomorrow's date
+    And I click on save and continue
+    And I enter the destination details using "<CPH>" "<SellOption>" and click continue
+    And I click and upload file
 
+    Examples:
+      | User    | Password  | CPH         | SellOption | FlockNumber | ID | Quantity |
+      | keeper11 | Password123456! | 53/999/0029| YES        | 123456      | 7  | 7   |
 
 
 
